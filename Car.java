@@ -1,14 +1,19 @@
 import java.awt.*;
 
-public class Volvo240 extends Car {
-
-    public final static double trimFactor = 1.25;
-  
+public abstract class Car  {                               
+    public boolean turboOn;                         
+    public int nrDoors; // Number of doors on the car
+    public double enginePower; // Engine power of the car
+    public double currentSpeed; // The current speed of the car
+    public Color color; // Color of the car                     // typ color?
+    public String modelName; // The car model name
     
-    public Volvo240(int nrDoors, Color color, int enginePower, String modelName){
-        super(nrDoors, color, enginePower, modelName);
-        
-    
+    public Car(int nrDoors, Color color, int enginePower, String modelName){        
+        this.nrDoors = nrDoors;     
+        this.color = color;     // kalla på Color ?
+        this.enginePower = enginePower;
+        this.modelName = modelName;
+        stopEngine();
     }
     
     public int getNrDoors(){
@@ -37,19 +42,20 @@ public class Volvo240 extends Car {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-    @Override 
+
+    
     public double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
-    }
-    @Override 
-    public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-    @Override 
-    public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        
     }
 
+    public void incrementSpeed(double amount){
+       
+    }
+
+    public void decrementSpeed(double amount){
+       
+    }
+    
     // TODO fix this method according to lab pm
     public void gas(double amount){
         incrementSpeed(amount);
@@ -59,4 +65,6 @@ public class Volvo240 extends Car {
     public void brake(double amount){
         decrementSpeed(amount);
     }
+}
+
 }
