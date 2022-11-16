@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car  {                               
+public abstract class Car implements  Movable  {                               
     public boolean turboOn;                         
     public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
@@ -65,6 +65,19 @@ public abstract class Car  {
     public void brake(double amount){
         decrementSpeed(amount);
     }
-}
 
+    void move(this); {
+
+    this.y += this.dy
+    this.x += this.dx
+
+    }
+
+    void turnLeft(); {
+
+    }
+
+   void turnRight(); {
+
+    }
 }
