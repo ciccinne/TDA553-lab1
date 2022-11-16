@@ -1,12 +1,13 @@
 import java.awt.*;
 
-public class Saab95 extends Car { 
+public class Saab95 extends Car  {  
+
     
-    public Saab95(int nrDoors, Color color, int enginePower, String modelName) {    
+    public Saab95(int nrDoors, Color color, int enginePower, String modelName) {      //vi skapar en subclass 
 
         super(nrDoors, color, enginePower, modelName);              
 
-	    turboOn = false;
+	    turboOn = false; 
     }
 
     public void setTurboOn(){
@@ -40,4 +41,5 @@ public class Saab95 extends Car {
     public void brake(double amount){
         decrementSpeed(amount);
     }
-}
+
+    

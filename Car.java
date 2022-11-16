@@ -8,7 +8,7 @@ public abstract class Car  {
     public Color color; // Color of the car                     // typ color?
     public String modelName; // The car model name
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName){        
+    public Car(int nrDoors, Color color, int enginePower, String modelName){                        
         this.nrDoors = nrDoors;     
         this.color = color;     // kalla på Color ?
         this.enginePower = enginePower;
