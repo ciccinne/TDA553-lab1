@@ -11,7 +11,7 @@ public abstract class Car implements Movable  {
 
     protected double X;
     protected double Y;
-    protected double direction;
+    protected double angle;
 
     
     public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
@@ -21,7 +21,7 @@ public abstract class Car implements Movable  {
         this.modelName = modelName;
         this.X = X;
         this.Y = Y;
-        this.direction = 0;
+        this.angle = 0;
         stopEngine();
     }
     
@@ -56,7 +56,6 @@ public abstract class Car implements Movable  {
     protected abstract double speedFactor();
 
     protected abstract void incrementSpeed(double amount);
-
     
     protected abstract void decrementSpeed(double amount);
     
@@ -72,36 +71,40 @@ public abstract class Car implements Movable  {
     }
 
     public void move() {
-        setX(getX() + (getCurrentSpeed() * Math.cos(getDirectionAngle())));
-        setY(getY() + (getCurrentSpeed() * Math.sin(getDirectionAngle())));
+        setX(getX() + (getCurrentSpeed() * Math.cos(getAngle())));
+        setY(getY() + (getCurrentSpeed() * Math.sin(getAngle())));
     }
 
     public void turnLeft() {
-        setAngle(getDirectionAngle() - 90 * (Math.PI / 180));
+        setAngle(getAngle() - 90 * (Math.PI / 180));
     }
 
     public void turnRight() {
-        setAngle(getDirectionAngle() + 90 * (Math.PI / 180));
+        setAngle(getAngle() + 90 * (Math.PI / 180));
     }
 
-    protected double getDirectionAngle() {
-        return direction * (Math.PI / 180);
+    protected double getAngle() {
+        return this.angle * (Math.PI / 180);
     }
 
     protected double getX() {
-        return X;
+        return this.X;
     }
 
     protected double getY() {
-        return Y;
+        return this.Y;
     }
 
     protected void setX(double x) {
-        X = x;
+        this.X = x;
     }
 
     protected void setY(double y) {
-        Y = y;
+        this.Y = y;
+    }
+
+    protected void setAngle(double angle) {
+        this.angle = angle;
     }
 
 }
