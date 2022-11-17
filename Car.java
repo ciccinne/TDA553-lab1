@@ -70,6 +70,9 @@ public abstract class Car implements Movable  {
         decrementSpeed(amount);
     }
 
+    /*
+     Ändrar X
+     */
     public void move() {
         setX(getX() + (getCurrentSpeed() * Math.cos(getAngle())));
         setY(getY() + (getCurrentSpeed() * Math.sin(getAngle())));
