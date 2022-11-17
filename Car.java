@@ -1,12 +1,18 @@
 import java.awt.*;
+import java.lang.Math;
 
 public abstract class Car implements Movable  {                               
-    public boolean turboOn;                         
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car                     // typ color?
-    public String modelName; // The car model name
+    protected boolean turboOn;                         
+    protected int nrDoors; // Number of doors on the car
+    protected double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    protected Color color; // Color of the car                     // typ color?
+    protected String modelName; // The car model name
+
+    protected double x;
+    protected double y;
+    protected double dx;
+    protected double dy;
     
     public Car(int nrDoors, Color color, int enginePower, String modelName){                        
         this.nrDoors = nrDoors;     
@@ -46,12 +52,11 @@ public abstract class Car implements Movable  {
     
     protected abstract double speedFactor();
 
-    protected abstract double  incrementSpeed(double amount);
+    protected abstract void incrementSpeed(double amount);
 
-     decrementSpeed(double amount){
-       
-    }
+    protected abstract void decrementSpeed(double amount);
     
+
     // TODO fix this method according to lab pm
     public void gas(double amount){
         incrementSpeed(amount);
@@ -63,17 +68,15 @@ public abstract class Car implements Movable  {
     }
 
     public void move() {
-
-    this.y += this.dy
-    this.x += this.dx
-
+        setX(getX() + (getCurrentSpeed() * Math.cos(getDirectionAngle())));
+        setY(getY() + (getCurrentSpeed() * Math.sin(getDirectionAngle())));
     }
 
     public void turnLeft() {
-
+        setAngle(getDirectionAngle() - 90 * (Math.PI / 180));
     }
 
     public void turnRight() {
-
+        setAngle(getDirectionAngle() + 90 * (Math.PI / 180));
     }
 }
