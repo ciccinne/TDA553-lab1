@@ -9,14 +9,19 @@ public abstract class Car implements Movable  {
     protected Color color; // Color of the car                     // typ color?
     protected String modelName; // The car model name
 
-    protected double x;
-    protected double y;
+    protected double X;
+    protected double Y;
+    protected double direction;
+
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName){                        
+    public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
         this.nrDoors = nrDoors;     
         this.color = color;     // kalla på Color ?
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.X = X;
+        this.Y = Y;
+        this.direction = 0;
         stopEngine();
     }
     
@@ -52,6 +57,7 @@ public abstract class Car implements Movable  {
 
     protected abstract void incrementSpeed(double amount);
 
+    
     protected abstract void decrementSpeed(double amount);
     
 
@@ -77,4 +83,25 @@ public abstract class Car implements Movable  {
     public void turnRight() {
         setAngle(getDirectionAngle() + 90 * (Math.PI / 180));
     }
+
+    protected double getDirectionAngle() {
+        return direction * (Math.PI / 180);
+    }
+
+    protected double getX() {
+        return X;
+    }
+
+    protected double getY() {
+        return Y;
+    }
+
+    protected void setX(double x) {
+        X = x;
+    }
+
+    protected void setY(double y) {
+        Y = y;
+    }
+
 }
