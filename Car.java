@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car implements  Movable{                               
+public abstract class Car implements  Movable{                               // privat
     public boolean turboOn;                         
     public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
@@ -44,15 +44,15 @@ public abstract class Car implements  Movable{
     }
 
     
-    public double speedFactor(){
+    protected abstract double  speedFactor(){
         
     }
 
-    public void incrementSpeed(double amount){
+    protected abstract double  incrementSpeed(double amount){
        
     }
 
-    public void decrementSpeed(double amount){
+     decrementSpeed(double amount){
        
     }
     
