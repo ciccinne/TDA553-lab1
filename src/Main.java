@@ -1,3 +1,6 @@
+package src;
+import java.util.List;
+
 public class Main {
 
     List<Movable> objectsInWorld;
