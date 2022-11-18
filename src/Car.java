@@ -54,11 +54,11 @@ public abstract class Car implements Movable  {
     
     protected abstract double speedFactor();
 
-    public void incrementSpeed(double amount){  
+    public void incrementSpeed(double amount){                          
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
-    public void decrementSpeed(double amount){  
+    public void decrementSpeed(double amount){                          
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
@@ -88,15 +88,15 @@ public abstract class Car implements Movable  {
         setAngle(getAngle() + 90 * (Math.PI / 180));
     }
 
-    protected double getAngle() {
+    public double getAngle() {                                              // public pga. get
         return this.angle * (Math.PI / 180);
     }
 
-    protected double getX() {
+    public double getX() {                                                  // public pga. get
         return this.X;
     }
 
-    protected double getY() {
+    public double getY() {                                                  // public pga. get
         return this.Y;
     }
 
