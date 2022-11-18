@@ -6,7 +6,7 @@ public class Saab95 extends Car  {
     
     public Saab95(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {     
         super(nrDoors, color, enginePower, modelName, X, Y);              
-
+        private boolean turboOn;
 	    turboOn = false; 
     }
 
@@ -22,14 +22,6 @@ public class Saab95 extends Car  {
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
-    }
-    @Override
-    public void incrementSpeed(double amount){   //Override
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-    @Override
-    public void decrementSpeed(double amount){  //Override
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
     // TODO fix this method according to lab pm

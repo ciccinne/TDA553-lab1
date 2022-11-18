@@ -1,14 +1,12 @@
-package test;
+package src;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
 import org.junit.jupiter.api.Test;
 
-import src.Car;
-import src.Saab95;
-
-public class testSaab95 {
+public class testCar {
     @Test
     public void does_startEngine_start_the_engine() {
         Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
@@ -22,6 +20,14 @@ public class testSaab95 {
     }
 
     @Test
+    public void can_move_move() {
+    Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+    saab.incrementSpeed(12);
+    saab.move();
+    assertEquals(12, saab.getX());
+    }
+
+    @Test
     public void turnLeft() {
 
     }
@@ -29,35 +35,5 @@ public class testSaab95 {
     @Test
     public void turnRight() {
     
-    }
-
-    @Test
-    protected double getAngle() {
-
-    }
-
-    @Test
-    protected double getX() {
-
-    }
-
-    @Test
-    protected double getY() {
-
-    }
-
-    @Test
-    protected void setX(double x) {
-
-    }
-
-    @Test
-    protected void setY(double y) {
-
-    }
-
-    @Test
-    protected void setAngle(double angle) {
-
     }
 }

@@ -2,21 +2,20 @@ package src;
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class Car implements Movable  {                               
-    protected boolean turboOn;                         
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car                     // typ color?
-    protected String modelName; // The car model name
+public abstract class Car implements Movable  {                                                        
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car                     // typ color?
+    private String modelName; // The car model name
 
-    protected double X;
-    protected double Y;
-    protected double angle;
+    private double X;
+    private double Y;
+    private double angle;
 
     
     public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
-        this.nrDoors = nrDoors;     
+        this.nrDoors = nrDoors;
         this.color = color;     // kalla på Color ?
         this.enginePower = enginePower;
         this.modelName = modelName;
@@ -52,14 +51,16 @@ public abstract class Car implements Movable  {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-
     
     protected abstract double speedFactor();
 
-    protected abstract void incrementSpeed(double amount);
-    
-    protected abstract void decrementSpeed(double amount);
-    
+    public void incrementSpeed(double amount){  
+        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+    }
+
+    public void decrementSpeed(double amount){  
+        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+    }
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
