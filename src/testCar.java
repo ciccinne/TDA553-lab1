@@ -21,9 +21,9 @@ public class testCar {
     @Test
     public void can_move_move() {
     Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
-    saab.incrementSpeed(12);
+    saab.incrementSpeed(6);
     saab.move();
-    assertEquals(12, saab.getX());
+    assertEquals(57.5, saab.getX());                         // Måste ta 50 + amount * 1.25. (50 är X-värdet för punkten vi placerade bilen i när vi skapade den, amount är vad vi ökar hastigheten med, 1.25 är speedfactorn för Saab95)
     }
 
     @Test
