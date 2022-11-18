@@ -1,7 +1,5 @@
 package src;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
