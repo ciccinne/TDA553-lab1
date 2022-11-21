@@ -31,12 +31,47 @@ public class testCar {
     }
 
     @Test
-    public void turnLeft() {
-
+    public void does_turnLeft_turn_left() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        saab.turnLeft();
+        assertEquals(-90 * (Math.PI / 180), saab.getAngle());
     }
 
     @Test
-    public void turnRight() {
-    
+    public void does_turnRight_turn_right() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        saab.turnLeft();
+        assertEquals(+90 * (Math.PI / 180), saab.getAngle());
     }
+
+    @Test
+    public void does_an_out_of_range_value_result_in_no_speed_increase() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        saab.gas(2);
+        assertEquals(0, saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void does_an_out_of_range_value_result_in_no_speed_decrease() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        saab.brake(2);
+        assertEquals(0, saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void does_currentSpeed_exceed_enginePower() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        for (int i = 0; i < 105; i++) {
+            saab.gas(1);
+        }
+        assertEquals(saab.getEnginePower(), saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void does_currentSpeed_go_below_zero() {
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        saab.decrementSpeed(5);
+        assertEquals(0, saab.getCurrentSpeed());
+    }
+
 }
