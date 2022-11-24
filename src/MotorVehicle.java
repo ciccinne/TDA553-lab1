@@ -2,19 +2,19 @@ package src;
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class Car implements Movable  {                                                        
+public abstract class MotorVehicle implements Movable  {                                                        
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car                     // typ color?
     private String modelName; // The car model name
-
+    
     private double X;
     private double Y;
     private double angle;
 
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
+    public MotorVehicle(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
         this.nrDoors = nrDoors;
         this.color = color;     // kalla på Color ?
         this.enginePower = enginePower;
