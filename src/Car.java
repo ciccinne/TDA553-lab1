@@ -2,11 +2,11 @@ package src;
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class Car implements Movable  {                                                        
+public abstract class Car implements Movable  {              /* Abstract class skapas då vi har gemensamma metoder och variabler  i saab och volvo som dka utföra samma sak    */            
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car                     // typ color?
+    private Color color; // Color of the car                     / color är en typ här 
     private String modelName; // The car model name
 
     private double X;
@@ -14,9 +14,9 @@ public abstract class Car implements Movable  {
     private double angle;
 
     
-    public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {                        
-        this.nrDoors = nrDoors;
-        this.color = color;     // kalla på Color ?
+    public Car(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {          // parameter               
+        this.nrDoors = nrDoors;                                         
+        this.color = color;     
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.X = X;
@@ -52,7 +52,7 @@ public abstract class Car implements Movable  {
 	    currentSpeed = 0;
     }
     
-    protected abstract double speedFactor();
+    protected abstract double speedFactor();            // abstract double, ange typ på metode   
 
     public void incrementSpeed(double amount){     
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;

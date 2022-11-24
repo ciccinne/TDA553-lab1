@@ -12,7 +12,7 @@ import src.Saab95;
 public class testCar {
     @Test
     public void does_startEngine_start_the_engine() {
-        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
+        Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);  // car saab har en stastic typ eftersom en car kommer alltid vara en car, new saab är av typen dynamic då saab 
         saab.startEngine();
         assertEquals(0.1, saab.getCurrentSpeed());
 
