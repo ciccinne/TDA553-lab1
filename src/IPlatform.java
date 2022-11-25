@@ -2,7 +2,7 @@ package src;
 
 public interface IPlatform {
     
-    void up();
+    void up(double amount);
     void down();
-    boolean isUp();
+    boolean isDown();
 }

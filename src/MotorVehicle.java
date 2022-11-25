@@ -2,7 +2,7 @@ package src;
 import java.awt.*;
 import java.lang.Math;
 
-public abstract class MotorVehicle implements Movable  {                                                        
+public abstract class MotorVehicle implements IMovable  {                                                        
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -24,10 +24,15 @@ public abstract class MotorVehicle implements Movable  {
         this.angle = 0;
         stopEngine();
     }
+
+    public String getModelName() {
+        return modelName;
+    }
     
     public int getNrDoors(){
         return nrDoors;
     }
+    
     public double getEnginePower(){
         return enginePower;
     }

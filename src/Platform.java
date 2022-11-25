@@ -10,20 +10,25 @@ public class Platform implements IPlatform {
     public double getAngle() {
         return platformAngle;
     }
-
-    @Override
-    public void up() {
-        // TODO Auto-generated method stub
-        
-    }
-
+    
     @Override
     public void down() {
-        // TODO Auto-generated method stub
+        platformAngle = 0;
         
     }
 
-    public void raisePlatform(double amount) {                             // amount ska anges i grader
-        platformAngle = amount;                       //RÄCKER DETTA???
+    @Override
+    public void up(double amount) {                                   // Amount är hur stor vilkel användaren vill att plattformen ska ha
+        if (amount > 0 && amount <= 70)
+        platformAngle = amount;
+        
+    }
+    @Override
+    public boolean isDown() {
+        if (getAngle() == 0) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
