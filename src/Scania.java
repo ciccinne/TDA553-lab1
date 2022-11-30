@@ -1,8 +1,7 @@
 package src;
 import java.awt.*;
 
-public class Scania extends Truck{
-    private final static double trimFactor = 1.25;                          // Kopierade direkt från Volvo240 
+public class Scania extends Truck{                        // Static gör att det tillhör hela klassen. Ändrar vi värdet så ändras det för alla instanser av klassen, alltså inte unikt för varje instans.
     private IPlatform platform;
 
     public Scania(int nrDoors, Color color, int enginePower, String modelString, double X, double Y) {
@@ -10,9 +9,12 @@ public class Scania extends Truck{
         this.platform = new Platform();                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania 
     }
 
-    @Override                                                              // Kopierade direkt från Volvo240
-    public double speedFactor(){
-        return getEnginePower() * 0.01 * trimFactor;
+    public boolean isDown() {
+        if (platform.getAngle() == 0) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
