@@ -23,4 +23,11 @@ public class Scania extends Truck{
             } 
         }
     }
+
+    public void platformUp(double amount){   // Delegerar
+        if (getCurrentSpeed() == 0) {
+            platform.up(amount);
+        }
+    }
+
 }

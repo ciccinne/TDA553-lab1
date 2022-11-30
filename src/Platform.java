@@ -1,10 +1,10 @@
 package src;
 
 public class Platform implements IPlatform {
-    private double platformAngle = 0;
-    
+    private double platformAngle;
+
     public Platform() {
-    
+        this.platformAngle = 0;
     }
 
     public double getAngle() {
