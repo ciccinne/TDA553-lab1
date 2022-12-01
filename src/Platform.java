@@ -12,19 +12,19 @@ public class Platform implements IPlatform {
     }
     
     @Override
-    public void down() {
+    public void notInUse() {
         platformAngle = 0;
         
     }
 
     @Override
-    public void up(double amount) {                                   // Amount är hur stor vilkel användaren vill att plattformen ska ha
+    public void inUse(double amount) {                                   // Amount är hur stor vilkel användaren vill att plattformen ska ha
         if (amount > 0 && amount <= 70)
         platformAngle = amount;
         
     }
     @Override
-    public boolean isDown() {
+    public boolean isNotInUse() {
         if (getAngle() == 0) {
             return true;
         }else{

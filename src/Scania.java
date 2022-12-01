@@ -9,17 +9,13 @@ public class Scania extends Truck{                        // Static gör att det
         this.platform = new Platform();                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania 
     }
 
-    public boolean isDown() {
-        if (platform.getAngle() == 0) {
-            return true;
-        }else{
-            return false;
-        }
+    public boolean isNotInUse() {
+         return platform.isNotInUse();
     }
 
     @Override
     public void gas(double amount){
-        if (platform.isDown()) {
+        if (platform.isNotInUse()) {
             if (amount >= 0 && amount <= 1) {
                 incrementSpeed(amount);
             } 
@@ -28,7 +24,7 @@ public class Scania extends Truck{                        // Static gör att det
 
     public void platformUp(double amount){   // Delegerar
         if (getCurrentSpeed() == 0) {
-            platform.up(amount);
+            platform.inUse(amount);
         }
     }
 

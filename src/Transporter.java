@@ -11,16 +11,16 @@ public class Transporter extends Truck{
 
     @Override
     public void gas(double amount){
-        if (platform.isDown()) {
+        if (flatbed.isNotInUse()) {
             if (amount >= 0 && amount <= 1) {
                 incrementSpeed(amount);
             } 
         }
     }
 
-    public void platformUp(double amount){   // Delegerar
+    public void useFlatbed(double amount){   // Delegerar
         if (getCurrentSpeed() == 0) {
-            platform.up(amount);
+            flatbed.inUse(amount);
         }
     }
 }

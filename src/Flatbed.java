@@ -8,17 +8,17 @@ public class Flatbed implements IPlatform {
     }
 
     @Override
-    public void up(double amount) {
+    public void notInUse() {
         state = 1;
     }
 
     @Override
-    public void down() {
+    public void inUse(double amount) {
         state = 0;
     }
 
     @Override
-    public boolean isDown() {
+    public boolean isNotInUse() {
         // TODO Auto-generated method stub
         return false;
     }
