@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class Transporter extends Truck implements ILoadable {
     private IPlatform flatbed;
-    private ArrayList<Car> carsLoaded;
-    private int index = carsLoaded.size() - 1;
+    public ArrayList<Car> carsLoaded;
+    private int lastIndex = carsLoaded.size() - 1;
+    private Car currentCar;
 
     public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y) {
         super(nrDoors, color, enginePower, modelString, X, Y);
@@ -64,8 +65,12 @@ public class Transporter extends Truck implements ILoadable {
     @Override
     public void unLoad() {
         if (flatbed.isInUse()) {
-            if (!(carsLoaded.size() == 0)) {           //Kan inte unload om carsLoaded är tom
-                carsLoaded.remove(index);
+            if (!(carsLoaded.size() == 0)) {                //Kan inte unload om carsLoaded är tom
+                currentCar = carsLoaded.get(lastIndex);
+                currentCar.setX(this.getX() - 5);
+                currentCar.setY(this.getY() - 5);
+
+                carsLoaded.remove(lastIndex);
             }
         }
     }
