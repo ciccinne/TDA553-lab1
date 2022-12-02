@@ -18,9 +18,13 @@ public class Flatbed implements IPlatform {
     }
 
     @Override
-    public boolean isNotInUse() {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean isInUse() {
+        if (state == 0) {
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     
 }

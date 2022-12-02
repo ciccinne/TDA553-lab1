@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Transporter extends Truck implements ILoadable {
     private IPlatform flatbed;
     private ArrayList<Car> carsLoaded;
+    private int index = carsLoaded.size() - 1;
 
     public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y) {
         super(nrDoors, color, enginePower, modelString, X, Y);
@@ -14,7 +15,7 @@ public class Transporter extends Truck implements ILoadable {
 
     @Override
     public void gas(double amount){
-        if (flatbed.isNotInUse()) {
+        if (!(flatbed.isInUse())) {
             if (amount >= 0 && amount <= 1) {
                 incrementSpeed(amount);
             } 
@@ -27,7 +28,7 @@ public class Transporter extends Truck implements ILoadable {
         }
     }
 
-    public boolean maxCars(){ //ge felmeddelande eller sluta load                  //AGNES GOES ROGUE
+    public boolean maxCars(){ //ge felmeddelande eller sluta load
         if (carsLoaded.size() == 6){
             return true;
         }else{
@@ -36,22 +37,23 @@ public class Transporter extends Truck implements ILoadable {
     }
 
     private boolean carClose(Car a){
-        if (this.getX() - a.getX() > 0 && this.getX() - a.getX() < 5 && this.getY() - a.getY() > 0 && this.getY() - a.getY() < 5){                       // Transporter:s position minus bilens position är mindre än 5 men större än 0.
+        if (this.getX() - a.getX() > 0 && this.getX() - a.getX() < 5 && this.getY() - a.getY() > 0 && this.getY() - a.getY() < 5){ // Transporter:s position minus bilens position är mindre än 5 men större än 0.
             return true;
         }else {
             return false;
         }
     }
 
-    @Override                                                                     //AGNES GOES ROGUE
+    @Override                            
     public void load(Car a) {
-        if (!(flatbed.isNotInUse())) {      // flatbed inUse
+        if (flatbed.isInUse()) {      // flatbed inUse
             if (!(maxCars())) {             // carsLoaded är inte full.
                 if (carClose(a)) {          // carClose() true.
                     carsLoaded.add(a);
                 }
             }
         }
+    }
     /*
         if (state.flatbed() == 0){  //har inte returnat state än?
             carsLoaded += 1; // vill kolla att carClose sen load?
@@ -61,6 +63,10 @@ public class Transporter extends Truck implements ILoadable {
 
     @Override
     public void unLoad() {
-        if (!(carsLoaded.size()))
+        if (flatbed.isInUse()) {
+            if (!(carsLoaded.size() == 0)) {           //Kan inte unload om carsLoaded är tom
+                carsLoaded.remove(index);
+            }
+        }
     }
 }

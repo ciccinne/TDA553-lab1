@@ -24,11 +24,11 @@ public class Platform implements IPlatform {
         
     }
     @Override
-    public boolean isNotInUse() {
+    public boolean isInUse() {
         if (getAngle() == 0) {
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 }
