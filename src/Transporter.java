@@ -2,7 +2,7 @@ package src;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Transporter extends Truck implements Iloadable {
+public class Transporter extends Truck implements ILoadable {
     private IPlatform flatbed;
     private ArrayList<Car> carsLoaded;
 
@@ -21,15 +21,17 @@ public class Transporter extends Truck implements Iloadable {
         }
     }
 
-    public void useFlatbed(double amount){   // Delegerar
+    public void useFlatbed(double amount){   // Delegerar                          
         if (getCurrentSpeed() == 0) {
             flatbed.inUse(amount);
         }
     }
 
-    public void maxCars(){
-        if (amountOfCars() == 6){
-            //ge felmeddelande eller sluta load
+    public boolean maxCars(){ //ge felmeddelande eller sluta load                  //AGNES GOES ROGUE
+        if (carsLoaded.size() == 6){
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -41,25 +43,24 @@ public class Transporter extends Truck implements Iloadable {
         }
     }
 
-    @Override
+    @Override                                                                     //AGNES GOES ROGUE
     public void load(Car a) {
-        // flatbed inUse
-        if (!(flatbed.notInUse()));
-        // carsLoaded är inte full.
-
-        // carClose() true.
-        if (carClose(a)){
-            carsLoaded.add(a);
+        if (!(flatbed.isNotInUse())) {      // flatbed inUse
+            if (!(maxCars())) {             // carsLoaded är inte full.
+                if (carClose(a)) {          // carClose() true.
+                    carsLoaded.add(a);
+                }
+            }
         }
+    /*
         if (state.flatbed() == 0){  //har inte returnat state än?
             carsLoaded += 1; // vill kolla att carClose sen load?
         }  
         
-    }
+    } */
 
     @Override
     public void unLoad() {
-        // TODO Auto-generated method stub
-        
+        if (!(carsLoaded.size()))
     }
 }
