@@ -6,8 +6,6 @@ public class Main {
         Car volvo = new Volvo240(2, null, 0, null, 0, 0);
         Truck truck = new Transporter(0, null, 0, null, 0, 0);
 
-        truck.loadcar(saab)
-
     }
     
 }

@@ -15,6 +15,6 @@ public class testTransporter {
         Saab95 saab95 = new Saab95(2, Color.red, 125, "Saab95", 46, 46);
         transporter.useFlatbed(0);
         transporter.load(saab95);
-        assertEquals(1,transporter.carsLoaded.size());
+        assertEquals(1,transporter.getCarsLoaded());
     }
 }

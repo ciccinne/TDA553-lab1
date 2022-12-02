@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Transporter extends Truck implements ILoadable {
     private IPlatform flatbed;
-    public ArrayList<Car> carsLoaded;
+    private ArrayList<Car> carsLoaded = new ArrayList<>();
     private int lastIndex = carsLoaded.size() - 1;
     private Car currentCar;
 
     public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y) {
         super(nrDoors, color, enginePower, modelString, X, Y);
         this.flatbed = new Flatbed();                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania 
-        this.carsLoaded = new ArrayList<>();
+        
     }
 
     @Override
@@ -74,4 +74,9 @@ public class Transporter extends Truck implements ILoadable {
             }
         }
     }
+
+    public int getCarsLoaded(){
+        return carsLoaded.size();
+    }
+
 }
