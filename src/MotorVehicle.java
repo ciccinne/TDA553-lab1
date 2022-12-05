@@ -59,14 +59,14 @@ public abstract class MotorVehicle implements IMovable  {
     
     protected abstract double speedFactor();
 
-    public void incrementSpeed(double amount){     
+    private void incrementSpeed(double amount){     
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
         if (currentSpeed > enginePower) {
             currentSpeed = enginePower;
         }
     }
 
-    public void decrementSpeed(double amount){                          
+    private void decrementSpeed(double amount){                          
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
         if (currentSpeed < 0) {
             currentSpeed = 0;

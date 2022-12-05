@@ -6,7 +6,7 @@ import java.awt.*;
 import org.junit.jupiter.api.Test;
 
 
-public class testCar {
+public class testMotorVehicle {
     @Test
     public void does_startEngine_start_the_engine() {
         Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
