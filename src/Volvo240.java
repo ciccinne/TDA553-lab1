@@ -10,7 +10,7 @@ public class Volvo240 extends Car  {
     }
 
     @Override 
-    public double speedFactor(){
+    protected double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;                     // getEnginePower() ist för att kalla på attributet enginePower (enginePower är ju private i Car)
     }
 }

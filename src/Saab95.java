@@ -17,7 +17,7 @@ public class Saab95 extends Car {
 	    turboOn = false;
     }
     @Override 
-    public double speedFactor(){  // Ska overridea
+    protected double speedFactor(){  // Ska overridea
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;                     // getEnginePower() ist för att kalla på attributet enginePower (enginePower är ju private i Car)
