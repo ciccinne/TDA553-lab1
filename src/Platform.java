@@ -1,4 +1,3 @@
-package src;
 
 public class Platform implements IPlatform {
     private double platformAngle;

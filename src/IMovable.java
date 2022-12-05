@@ -1,4 +1,4 @@
-package src;
+
 public interface IMovable {
     void move();
     void turnLeft();

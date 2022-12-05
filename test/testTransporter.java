@@ -1,12 +1,10 @@
-package test;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
 import org.junit.jupiter.api.Test;
 
-import src.Saab95;
-import src.Transporter;
 
 public class testTransporter {
     @Test
