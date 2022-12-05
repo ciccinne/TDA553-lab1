@@ -37,7 +37,7 @@ public class testCar {
     @Test
     public void does_turnRight_turn_right() {
         Car saab = new Saab95(2, Color.red, 125, "Saab95", 50, 50);
-        saab.turnLeft();
+        saab.turnRight();
         assertEquals(+90 * (Math.PI / 180), saab.getAngle());
     }
 
