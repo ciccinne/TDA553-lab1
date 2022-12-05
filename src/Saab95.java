@@ -4,8 +4,8 @@ import java.awt.*;
 public class Saab95 extends Car {  
     private boolean turboOn;                                        // Flyttat från konstruktorn
     
-    public Saab95(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {     
-        super(nrDoors, color, enginePower, modelName, X, Y);              
+    public Saab95(double X, double Y) {     
+        super(2, Color.red, 125, "Saab95", X, Y);              
 	    turboOn = false;
     }
 
