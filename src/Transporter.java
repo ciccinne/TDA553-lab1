@@ -17,11 +17,10 @@ public class Transporter extends Truck implements ILoadable {
     @Override
     public void gas(double amount){
         if (!(flatbed.isInUse())) {
-            if (amount >= 0 && amount <= 1) {
-                incrementSpeed(amount);
+            super.gas(amount);
             } 
         }
-    }
+    
 
     public void useFlatbed(double amount){   // Delegerar                          
         if (getCurrentSpeed() == 0) {

@@ -12,6 +12,4 @@ public abstract class Truck extends MotorVehicle {
     protected double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;
     }
-
-    public abstract void gas(double amount);
 }

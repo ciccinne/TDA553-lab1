@@ -12,9 +12,7 @@ public class Scania extends Truck{                        // Static gör att det
     @Override
     public void gas(double amount){
         if (!(platform.isInUse())) {
-            if (amount >= 0 && amount <= 1) {
-                incrementSpeed(amount);
-            } 
+            super.gas(amount);
         }
     }
 
