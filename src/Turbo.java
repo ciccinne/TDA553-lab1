@@ -5,6 +5,9 @@ public class Turbo {
         this.turboOn = false;
     }
 
+    public boolean getTurboState() {
+        return turboOn;
+    }
 
     public void setTurboOn(){
 	    turboOn = true;
