@@ -93,16 +93,20 @@ public abstract class MotorVehicle implements IMovable  {
      Ändrar X
      */
     public void move() {
-        setX(getX() + (getCurrentSpeed() * Math.cos(getAngle())));
-        setY(getY() + (getCurrentSpeed() * Math.sin(getAngle())));
+        X += currentSpeed * Math.cos(angle);
+        Y += currentSpeed * Math.sin(angle);
     }
 
     public void turnLeft() {
-        setAngle(getAngle() - 90 * (Math.PI / 180));
+        angle -= Math.PI / 2;                         // Tips: anv. int ist för att unvika avrundningsfel. Alltså 1, -1 (funkar som vi har det nu dock)
+        /* 
+        setAngle(getAngle() - 90 * (Math.PI / 180)); */
     }
 
     public void turnRight() {
-        setAngle(getAngle() + 90 * (Math.PI / 180));
+        angle += Math.PI / 2;
+        /* 
+        setAngle(getAngle() + 90 * (Math.PI / 180)); */
     }
 
     public double getAngle() {                                              // public pga. get
