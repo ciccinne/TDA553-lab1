@@ -1,32 +1,40 @@
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.awt.*;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 
 public class testMotorVehicle {
     @Test
+    public void test() {
+        System.out.println("Got to line 6");
+        assertTrue(true);
+    }
+
+     @Test
     public void does_startEngine_start_the_engine() {
         Car saab = new Saab95(50, 50);
         saab.startEngine();
         assertEquals(0.1, saab.getCurrentSpeed());
 
-        /* MOVE:
+        /*
+         * MOVE:
          * ex. sätt increament speed till 12
-         * Kalla på x, som nu borde vara -12 eller +12 beroende på om vi åker öst eller väst (cos 0, resp cos 180)
+         * Kalla på x, som nu borde vara -12 eller +12 beroende på om vi åker öst eller
+         * väst (cos 0, resp cos 180)
          */
-    }
+     }
 
     @Test
     public void can_move_move() {
-    Car saab = new Saab95(50, 50);
-    for (int i = 0; i < 6; i++) {
-        saab.gas(1);
-    }
-    saab.move();
-    assertEquals(57.5, saab.getX());                         // Måste ta 50 + amount * 1.25. (50 är X-värdet för punkten vi placerade bilen i när vi skapade den, amount är vad vi ökar hastigheten med, 1.25 är speedfactorn för Saab95)
+        Saab95 saab = new Saab95(50, 50);
+        for (int i = 0; i < 6; i++) {
+            saab.turboOn();
+            saab.gas(1);
+        }
+        saab.move();
+        assertEquals(59.75, saab.getX()); // Måste ta 50 + amount * 1.25. (50 är X-värdet för punkten vi placerade bilen
+                                         // i när vi skapade den, amount är vad vi ökar hastigheten med, 1.25 är
+                                         // speedfactorn för Saab95)
     }
 
     @Test
@@ -65,7 +73,7 @@ public class testMotorVehicle {
         }
         assertEquals(saab.getEnginePower(), saab.getCurrentSpeed());
     }
- 
+
     @Test
     public void does_currentSpeed_go_below_zero() {
         Car saab = new Saab95(50, 50);

@@ -2,7 +2,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.awt.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 
 public class testScania {

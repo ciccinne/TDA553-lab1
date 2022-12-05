@@ -84,8 +84,6 @@ public abstract class MotorVehicle implements IMovable  {
     public void brake(double amount){
         if (amount >= 0 && amount <= 1) {
             decrementSpeed(amount);
-        }else{
-            throw new IllegalArgumentException("wrong input");                               // TA fixade exception!!
         }
     }
 
