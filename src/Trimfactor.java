@@ -5,7 +5,7 @@ public class Trimfactor {
     this.trimFactor = amount;
 }
 
-    public getTrimfactor(){
-        
+    public double getTrimfactor(){
+        return trimFactor;
     }
 }

@@ -5,15 +5,22 @@ public class Loadable {
     private int lastIndex = carsLoaded.size() - 1;
     private Car currentCar;
     private int maxCars;
+    private double x;
+    private double y;
 
 
-    public Loadable(int x){
-        this.maxCars =  x;
-
+    public Loadable(int maxNrCars, double x, double y){
+        this.maxCars =  maxNrCars;
+        this.x = x;
+        this.y = y;
     }
 
-    public ArrayList<Car> getCarsLoaded() {
-        return carsLoaded;
+    public void setX(double X) {
+        this.x = X;
+    }
+
+    public void setY(double Y) {
+        this.y = Y;
     }
 
     public boolean maxCars(){ //ge felmeddelande eller sluta load
@@ -24,8 +31,15 @@ public class Loadable {
         }
     }
 
+    public void moveLoadedCars() {
+        for (int i = 0; i < carsLoaded.size(); i++) {
+            Car currentCar = carsLoaded.get(i);
+            currentCar.setX(x);
+        }
+    }
+
     private boolean carClose(Car a){
-        if (this.getX() - a.getX() > 0 && this.getX() - a.getX() < 5 && this.getY() - a.getY() > 0 && this.getY() - a.getY() < 5){ // Transporter:s position minus bilens position är mindre än 5 men större än 0.
+        if (x - a.getX() > 0 && x - a.getX() < 5 && y - a.getY() > 0 && y - a.getY() < 5){ // Loadable:s position minus bilens position är mindre än 5 men större än 0.
             return true;
         }else {
             return false;
@@ -33,25 +47,24 @@ public class Loadable {
     }
 
                                
-    public void load(Car a) {      // flatbed inUse
+    public void load(Car a) {
             if (!(maxCars())) {             // carsLoaded är inte full.
-                carsLoaded.add(a);
+                if (carClose(a)) {          // carClose() true.
+                    carsLoaded.add(a);
+            }
         }
     }
    
-
     
     public void unLoad() {
             if (!(carsLoaded.size() == 0)) {                //Kan inte unload om carsLoaded är tom
                 currentCar = carsLoaded.get(lastIndex);
-                currentCar.setX(this.getX() - 5);
-                currentCar.setY(this.getY() - 5);
+                currentCar.setX(currentCar.getX() - 5);
+                currentCar.setY(currentCar.getY() - 5);
 
                 carsLoaded.remove(lastIndex);
-            }
+        }
     }
-
-   
 }
 
 

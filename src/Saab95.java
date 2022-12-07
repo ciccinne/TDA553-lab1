@@ -5,7 +5,7 @@ public class Saab95 extends Car {
     private Turbo turboFunction = new Turbo();
     
     public Saab95(double X, double Y) {     
-        super(2, Color.red, 125, "Saab95", X, Y);              
+        super(4, Color.red, 125, "Saab95", X, Y);              
 	    turboFunction.setTurboOff();
     }
 
