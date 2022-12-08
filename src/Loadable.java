@@ -39,6 +39,7 @@ public class Loadable {
         for (int i = 0; i < carsLoaded.size(); i++) {
             Car currentCar = carsLoaded.get(i);
             currentCar.setX(x);
+            currentCar.setY(y);
         }
     }
 
