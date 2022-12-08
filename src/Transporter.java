@@ -1,5 +1,6 @@
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Transporter extends Truck { 
     private IPlatform flatbed;
@@ -31,7 +32,10 @@ public class Transporter extends Truck {
         load.setY(newY);
 
         load.moveLoadedCars();
-    
+    }
+
+    public ArrayList<Car> getCarsLoaded() {
+        return load.getCarsLoaded();
     }
     
     public void load(Car a) {

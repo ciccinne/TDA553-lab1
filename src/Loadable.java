@@ -15,6 +15,10 @@ public class Loadable {
         this.y = y;
     }
 
+    public ArrayList<Car> getCarsLoaded() {
+        return carsLoaded;
+    }
+
     public void setX(double X) {
         this.x = X;
     }
