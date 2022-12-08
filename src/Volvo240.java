@@ -1,16 +1,16 @@
-package src;
+
 import java.awt.*;
 
 public class Volvo240 extends Car  {
-    public final static double trimFactor = 1.25;
-  
+    private Trim trim;
     
-    public Volvo240(int nrDoors, Color color, int enginePower, String modelName, int x, int y){
-        super(nrDoors, color, enginePower, modelName, x, y);
+    public Volvo240(double x, double y, double trimFactor){
+        super(4, Color.black, 100, "Volvo240", x, y);
+        this.trim = new Trim(trimFactor, 100);
     }
 
     @Override 
-    public double speedFactor(){
-        return getEnginePower() * 0.01 * trimFactor;                     // getEnginePower() ist för att kalla på attributet enginePower (enginePower är ju private i Car)
+    protected double speedFactor(){
+        return trim.speedFactor();
     }
 }

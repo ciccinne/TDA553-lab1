@@ -1,26 +1,23 @@
-package src;
+
 import java.awt.*;
 
-public class Saab95 extends Car  {  
-    private boolean turboOn;                                        // Flyttat från konstruktorn
+public class Saab95 extends Car {  
+    private Turbo turboFunction;
     
-    public Saab95(int nrDoors, Color color, int enginePower, String modelName, double X, double Y) {     
-        super(nrDoors, color, enginePower, modelName, X, Y);              
-	    turboOn = false;
+    public Saab95(double X, double Y) {     
+        super(4, Color.red, 125, "Saab95", X, Y);              
+	    this.turboFunction = new Turbo(1, 1.3, 125);
+        turboFunction.setTurboOff();
     }
 
-    public void setTurboOn(){
-	    turboOn = true;
+    public void turboOn(){
+        turboFunction.setTurboOn(); 
     }
 
-    public void setTurboOff(){   
-	    turboOn = false;
-    }
-    @Override 
-    public double speedFactor(){  // Ska overridea
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return getEnginePower() * 0.01 * turbo;                     // getEnginePower() ist för att kalla på attributet enginePower (enginePower är ju private i Car)
+
+    @Override // Ska overridea
+    protected double speedFactor(){  
+        return turboFunction.speedFactor();
     }
 }
 
