@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,10 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.vehicles.add(new Volvo240(0, 0, 1.3));
+        cc.vehicles.add(new Saab95(0, 0));
+        cc.vehicles.add(new Scania(0, 0));
+
+
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
