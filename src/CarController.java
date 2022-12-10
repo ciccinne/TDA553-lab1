@@ -33,7 +33,7 @@ public class CarController {
 
         cc.vehicles.add(new Volvo240(0, 0, 1.3));
         cc.vehicles.add(new Saab95(0, 0));
-        cc.vehicles.add(new Scania(0, 0));
+        cc.vehicles.add(new Scania(0, 0, 1.3));
 
 
 
