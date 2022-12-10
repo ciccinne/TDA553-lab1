@@ -22,4 +22,6 @@ public class Scania extends Truck{                        // Static gör att det
         }
     }
 
+    // platformDown-metod
+
 }
