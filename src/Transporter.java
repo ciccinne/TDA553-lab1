@@ -7,8 +7,8 @@ public class Transporter extends Truck {
     private Loadable load;
     
 
-    public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y, int maxNrCars) {
-        super(nrDoors, color, enginePower, modelString, X, Y);
+    public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y, int maxNrCars, double trimFactor) {
+        super(nrDoors, color, enginePower, modelString, X, Y, trimFactor);
         this.flatbed = new Flatbed();                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania
         this.load = new Loadable(maxNrCars, X, Y);
         
