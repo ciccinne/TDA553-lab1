@@ -12,8 +12,7 @@ public class Flatbed implements IPlatform {
         state = 1;
     }
 
-    @Override
-    public void inUse(double amount) {
+    public void lowerFlatbed() {
         state = 0;
     }
 

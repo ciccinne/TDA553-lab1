@@ -16,8 +16,7 @@ public class Platform implements IPlatform {
         
     }
 
-    @Override
-    public void inUse(double amount) {                                   // Amount är hur stor vilkel användaren vill att plattformen ska ha
+    public void setAngle(double amount) {                                   // Amount är hur stor vilkel användaren vill att plattformen ska ha
         if (amount > 0 && amount <= 70)
         platformAngle = amount;
         

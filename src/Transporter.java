@@ -3,23 +3,20 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Transporter extends Truck { 
-    private IPlatform flatbed;
+    private Flatbed flatbed;
     private Loadable load;
     
 
-    public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y, int maxNrCars, double trimFactor) {
-        super(nrDoors, color, enginePower, modelString, X, Y, trimFactor);
-        this.flatbed = new Flatbed();                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania
+    public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y, int maxNrCars, double trimFactor, Flatbed flatbed) {
+        super(nrDoors, color, enginePower, modelString, X, Y, trimFactor, flatbed);
+        this.flatbed = flatbed;                                    // Composition -> vi skapar en instans av platform och lägger den som ett attrebut till instanserna av scania
         this.load = new Loadable(maxNrCars, X, Y);
         
     }
 
-    @Override
-    public void gas(double amount){
-        if (!(flatbed.isInUse())) {
-            super.gas(amount);
-            } 
-        }
+    public Transporter(int nrDoors, Color color, int enginePower, String modelString, double X, double Y, int maxNrCars, double trimFactor) {
+        this(nrDoors, color, enginePower, modelString, X, Y, maxNrCars, trimFactor, new Flatbed());
+    }
     
     @Override
     public void move() {
@@ -46,7 +43,7 @@ public class Transporter extends Truck {
 
     public void useFlatbed(double amount){   // Delegerar                          
         if (getCurrentSpeed() == 0) {
-            flatbed.inUse(amount);
+            flatbed.lowerFlatbed();
         }
     }
 
