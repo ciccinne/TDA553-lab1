@@ -7,13 +7,18 @@ import java.util.ArrayList;
 public class App {
         // The delay (ms) corresponds to 20 updates a sec (hz)
         private final static int delay = 50;
-        // The timer is started with an listener (see below) that executes the statements
-        // each step between delays.
-        private static Timer timer = new Timer(delay, new TimerListener());
         // A list of cars, modify if needed
         static ArrayList<MotorVehicle> vehicles = new ArrayList<>();
 
+        private static Timer timer;
         static CarView frame;
+        static DrawPanel drawpanel;
+
+        public App() {
+        // The timer is started with an listener (see below) that executes the statements
+        // each step between delays.
+        this.timer = new Timer(delay, new TimerListener());
+    }
 
 
 //methods:
@@ -27,12 +32,29 @@ public static void main(String[] args) {
     CarController cc = new CarController(vehicles);
 
 
-
     // Start a new view and send a reference of self
     frame = new CarView("CarSim 1.0", cc);
+    drawpanel.getCarList(vehicles);
 
     // Start the timer
     timer.start();
 
+    }
+
+
+
+     /* Each step the TimerListener moves all the cars in the list and tells the
+    * view to update its images. Change this method to your needs.
+    * */private class TimerListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            for (MotorVehicle motorVehicle : vehicles) {
+                motorVehicle.move();
+                int x = (int) Math.round(motorVehicle.getX());
+                int y = (int) Math.round(motorVehicle.getY());
+                drawpanel.updateImageCoord(x, y);
+                // repaint() calls the paintComponent method of the panel
+                drawpanel.repaint();
+            }
+        }
     }
 }

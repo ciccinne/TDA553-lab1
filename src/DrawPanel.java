@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 // This panel represent the animated part of the view with the car images.
 
@@ -16,14 +17,18 @@ public class DrawPanel extends JPanel{
     /*  Just a single image, TODO: Generalize
     */
     BufferedImage volvoImage, saabImage, scaniaImage;
-
-    ArrayList<MotorVehicle> vehicles = new ArrayList<>();
+    ArrayList<MotorVehicle> vehicles;
     
     // To keep track of a singel cars position
     private Point volvoPoint = new Point();
     private Point saab95Point= new Point();
     private Point scaniaPoint = new Point();
        
+
+
+    public void getCarList(ArrayList<MotorVehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
 
     // TODO: Make this genereal for all cars
     void updateImageCoord(int x, int y){
@@ -56,21 +61,6 @@ public class DrawPanel extends JPanel{
             ex.printStackTrace();
         }
 
-    }
-
-     /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (MotorVehicle motorVehicle : vehicles) {
-                motorVehicle.move();
-                int x = (int) Math.round(motorVehicle.getX());
-                int y = (int) Math.round(motorVehicle.getY());
-                updateImageCoord(x, y);
-                // repaint() calls the paintComponent method of the panel
-                repaint();
-            }
-        }
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
