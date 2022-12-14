@@ -33,15 +33,13 @@ public static void main(String[] args) {
 
 
     // Start a new view and send a reference of self
-    frame = new CarView("CarSim 1.0", cc);
+    frame = new CarView("CarSim 1.0");
     drawpanel.getCarList(vehicles);
 
     // Start the timer
     timer.start();
 
     }
-
-
 
      /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
