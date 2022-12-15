@@ -15,16 +15,15 @@ import java.awt.*;
  */
 
 public class CarController extends JPanel {
-    ArrayList<MotorVehicle> vehicles;
+    VehicleCollection vehicles;
+    int gasAmount = 0;
 
-    public CarController(ArrayList<MotorVehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
+    public CarController(VehicleCollection vehicleCollection) {             //Ändrat så att parametern kräver typen vehicleCollection ist för "ArrayList<MotorVehicle> vehicles"
+        this.vehicles = vehicleCollection;
 
     
 
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
     JButton gasButton = new JButton("Gas");
@@ -55,7 +54,8 @@ public class CarController extends JPanel {
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gas(gasAmount);
+                vehicles.gasAllVehicles(gasAmount);                             //Kallar på "vehicles.gasAllVehicles(gasAmount);" ist för "gas(gasAmount);"
             }
         });
+    }
 }

@@ -1,6 +1,13 @@
+import java.util.ArrayList;
+
+
 public class VehicleCollection {
+    ArrayList<MotorVehicle> vehicles;
     
-    public 
+    
+    public VehicleCollection(ArrayList<MotorVehicle> vehicles){
+        this.vehicles = vehicles;
+    }
 
 
     // Calls the gas method for each car once

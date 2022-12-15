@@ -9,6 +9,7 @@ public class App {
         private final static int delay = 50;
         // A list of cars, modify if needed
         static ArrayList<MotorVehicle> vehicles = new ArrayList<>();
+        static VehicleCollection vehicleCollection;
 
         private static Timer timer;
         static CarView frame;
@@ -28,8 +29,10 @@ public static void main(String[] args) {
     vehicles.add(new Volvo240(0, 0, 1.3));
     vehicles.add(new Saab95(0, 0));
     vehicles.add(new Scania(0, 0, 1.3));
+    vehicleCollection = new VehicleCollection(vehicles);                //Skapar en vehicleCollection och lägger in vehicles-listan där pga. själva anropningen till på motorVechicles gas-metoden skulle (enligt Martin tror jag?) vara i en egen klass som tillhör Model ??
 
-    CarController cc = new CarController(vehicles);
+    
+    CarController cc = new CarController(vehicleCollection);            //Skickar in vechicleCollection istället för vehicles-listan
 
 
     // Start a new view and send a reference of self
