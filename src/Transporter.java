@@ -41,12 +41,17 @@ public class Transporter extends Truck {
         }
     }
 
-    public void useFlatbed(double amount){   // Delegerar                          
+    public void useFlatbed(){   // Delegerar                          
         if (getCurrentSpeed() == 0) {
             flatbed.lowerFlatbed();
         }
     }
+    
+    public void notUseFlatbed(){
+        flatbed.notInUse();
 
+    }
+    
     public void unLoad(){
         load.unLoad();
     }

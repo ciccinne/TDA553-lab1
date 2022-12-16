@@ -17,4 +17,12 @@ public class VehicleCollection {
             motorVehicle.gas(gas);
         }
     }
+
+    void moveAllVehicles(){
+        for (MotorVehicle motorVehicle : vehicles){
+            motorVehicle.move();
+        }
+    }
+
+
 }

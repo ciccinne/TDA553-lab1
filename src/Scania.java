@@ -13,7 +13,7 @@ public class Scania extends Truck {                        // Static gör att de
         this(X, Y, trimFactor, new Platform());
     }
 
-    public void platformUp(double amount){   // Delegerar
+    public void movePlatform(double amount){   // Delegerar
         if (getCurrentSpeed() == 0) {
             platform.setAngle(amount);
         }
